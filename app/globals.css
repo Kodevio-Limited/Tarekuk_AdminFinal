@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f7f7f9;
+  --surface: #ffffff;
+  --border: #ececf0;
+
+  --accent: #ffc107;
+  --accent-strong: #e6ab00;
+  --accent-soft: #fff8e1;
+
+  --navy: #374151;
+  --navy-soft: #505a6b;
+  --navy-deep: #263043;
+
+  --success: #219a3b;
+  --success-soft: #e7f6eb;
+  --danger: #dc2626;
+  --danger-soft: #fdecec;
+  --warning: #f59e0b;
+  --warning-soft: #fef3e2;
+
+  --gray: #989898;
+  --gray-soft: #f1f1f3;
+  --text-primary: #374151;
+  --text-secondary: #989898;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+
+  --color-accent: var(--accent);
+  --color-accentStrong: var(--accent-strong);
+  --color-accentSoft: var(--accent-soft);
+
+  --color-navy: var(--navy);
+  --color-navySoft: var(--navy-soft);
+  --color-navyDeep: var(--navy-deep);
+
+  --color-success: var(--success);
+  --color-successSoft: var(--success-soft);
+  --color-danger: var(--danger);
+  --color-dangerSoft: var(--danger-soft);
+  --color-warning: var(--warning);
+  --color-warningSoft: var(--warning-soft);
+
+  --color-gray: var(--gray);
+  --color-graySoft: var(--gray-soft);
+  --color-textPrimary: var(--text-primary);
+  --color-textSecondary: var(--text-secondary);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--text-primary);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gray);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

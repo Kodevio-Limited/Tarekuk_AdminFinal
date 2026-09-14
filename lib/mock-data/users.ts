@@ -1,0 +1,143 @@
+import type { User, UserTransfer, UserRepayment } from '@/types/user';
+import { daysAgo } from '@/lib/utils';
+
+export const users: User[] = [
+  {
+    id: 'usr_001',
+    name: 'Amina Yusuf',
+    email: 'amina.yusuf@gmail.com',
+    phone: '+234 801 234 5678',
+    status: 'active',
+    totalTransactions: 42,
+    registrationDate: daysAgo(320),
+    linkedPaymentMethod: { provider: 'Zenith Bank', type: 'Debit Card', last4: '4521' },
+    avatarColor: '#FFC107',
+  },
+  {
+    id: 'usr_002',
+    name: 'David Okafor',
+    email: 'david.okafor@gmail.com',
+    phone: '+234 802 345 6789',
+    status: 'active',
+    totalTransactions: 87,
+    registrationDate: daysAgo(540),
+    linkedPaymentMethod: { provider: 'GTBank', type: 'Bank Transfer', last4: '8810' },
+    avatarColor: '#219A3B',
+  },
+  {
+    id: 'usr_003',
+    name: 'Fatima Bello',
+    email: 'fatima.bello@gmail.com',
+    phone: '+44 7700 900123',
+    status: 'inactive',
+    totalTransactions: 15,
+    registrationDate: daysAgo(210),
+    linkedPaymentMethod: { provider: 'Revolut', type: 'Debit Card', last4: '3390' },
+    avatarColor: '#374151',
+  },
+  {
+    id: 'usr_004',
+    name: 'James Carter',
+    email: 'james.carter@gmail.com',
+    phone: '+1 415 555 0134',
+    status: 'active',
+    totalTransactions: 63,
+    registrationDate: daysAgo(400),
+    linkedPaymentMethod: { provider: 'Chase Bank', type: 'Bank Transfer', last4: '7742' },
+    avatarColor: '#F59E0B',
+  },
+  {
+    id: 'usr_005',
+    name: 'Laila Ibrahim',
+    email: 'laila.ibrahim@gmail.com',
+    phone: '+971 50 123 4567',
+    status: 'suspended',
+    totalTransactions: 9,
+    registrationDate: daysAgo(150),
+    linkedPaymentMethod: { provider: 'Emirates NBD', type: 'Debit Card', last4: '1205' },
+    avatarColor: '#DC2626',
+  },
+  {
+    id: 'usr_006',
+    name: 'Michael Adeyemi',
+    email: 'michael.adeyemi@gmail.com',
+    phone: '+234 803 456 7890',
+    status: 'active',
+    totalTransactions: 34,
+    registrationDate: daysAgo(95),
+    linkedPaymentMethod: { provider: 'Access Bank', type: 'Bank Transfer', last4: '6601' },
+    avatarColor: '#989898',
+  },
+  {
+    id: 'usr_007',
+    name: 'Sarah Williams',
+    email: 'sarah.williams@gmail.com',
+    phone: '+1 212 555 0198',
+    status: 'active',
+    totalTransactions: 51,
+    registrationDate: daysAgo(620),
+    linkedPaymentMethod: { provider: 'Wells Fargo', type: 'Debit Card', last4: '9084' },
+    avatarColor: '#219A3B',
+  },
+  {
+    id: 'usr_008',
+    name: 'Yusuf Abdullahi',
+    email: 'yusuf.abdullahi@gmail.com',
+    phone: '+234 805 678 9012',
+    status: 'inactive',
+    totalTransactions: 6,
+    registrationDate: daysAgo(60),
+    linkedPaymentMethod: null,
+    avatarColor: '#FFC107',
+  },
+  {
+    id: 'usr_009',
+    name: 'Grace Mensah',
+    email: 'grace.mensah@gmail.com',
+    phone: '+233 20 456 7890',
+    status: 'active',
+    totalTransactions: 28,
+    registrationDate: daysAgo(180),
+    linkedPaymentMethod: { provider: 'Ecobank', type: 'Bank Transfer', last4: '3310' },
+    avatarColor: '#219A3B',
+  },
+  {
+    id: 'usr_010',
+    name: 'Omar Hassan',
+    email: 'omar.hassan@gmail.com',
+    phone: '+20 100 234 5678',
+    status: 'active',
+    totalTransactions: 17,
+    registrationDate: daysAgo(120),
+    linkedPaymentMethod: { provider: 'CIB Bank', type: 'Debit Card', last4: '5521' },
+    avatarColor: '#FFC107',
+  },
+];
+
+export const userTransfers: Record<string, UserTransfer[]> = {
+  usr_001: [
+    { id: 'txn_001', amount: 1200, recipient: 'David Okafor', date: daysAgo(2), status: 'completed' },
+    { id: 'txn_002', amount: 450, recipient: 'Fatima Bello', date: daysAgo(5), status: 'completed' },
+    { id: 'txn_003', amount: 800, recipient: 'James Carter', date: daysAgo(1), status: 'pending' },
+  ],
+  usr_002: [
+    { id: 'txn_004', amount: 2500, recipient: 'Amina Yusuf', date: daysAgo(3), status: 'completed' },
+    { id: 'txn_005', amount: 150, recipient: 'Sarah Williams', date: daysAgo(6), status: 'failed' },
+  ],
+  usr_003: [
+    { id: 'txn_006', amount: 900, recipient: 'Michael Adeyemi', date: daysAgo(4), status: 'completed' },
+  ],
+};
+
+export const userRepayments: Record<string, UserRepayment[]> = {
+  usr_001: [
+    { id: 'rep_001', amountDue: 300, dueDate: daysAgo(-5), status: 'pending' },
+    { id: 'rep_002', amountDue: 150, dueDate: daysAgo(-12), status: 'completed' },
+  ],
+  usr_002: [
+    { id: 'rep_003', amountDue: 500, dueDate: daysAgo(-2), status: 'overdue' },
+  ],
+  usr_004: [
+    { id: 'rep_004', amountDue: 250, dueDate: daysAgo(-8), status: 'completed' },
+  ],
+};
