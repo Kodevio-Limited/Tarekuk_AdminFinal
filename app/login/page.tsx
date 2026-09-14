@@ -3,7 +3,7 @@
 import { Suspense, useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Image from 'next/image';
-import { Eye, EyeOff, Lock, Mail, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Eye, EyeOff, Lock, Mail, ArrowRight } from 'lucide-react';
 import { FAKE_CREDENTIALS, isValidCredentials, setAuthCookie, isAuthenticatedClient, getSafeRedirect } from '@/lib/auth';
 
 function LoginForm() {
@@ -62,41 +62,28 @@ function LoginForm() {
 
   return (
     <div className="flex min-h-screen bg-background">
-      {/* Left branding panel - hidden on mobile */}
-      <div className="hidden w-[46%] flex-col justify-between bg-navyDeep p-10 text-white lg:flex">
-        <div>
-          <div className="inline-flex items-center gap-3 rounded-xl bg-white px-4 py-3">
+      {/* Left image panel - hidden on mobile */}
+      <div className="hidden w-[46%] flex-col justify-between bg-navyDeep lg:flex relative overflow-hidden">
+        {/* Logo overlay */}
+        <div className="absolute left-10 top-10 z-10">
+          <div className="inline-flex items-center gap-3 rounded-xl bg-white px-4 py-3 shadow-lg">
             <Image src="/logo.svg" alt="Tarekuk" width={180} height={64} className="h-9 w-auto" priority />
           </div>
-          <div className="mt-14 max-w-md">
-            <h1 className="text-[32px] font-bold leading-tight">Tarekuk Transfer Admin</h1>
-            <p className="mt-4 text-sm leading-relaxed text-white/70">
-              Securely manage transfers, repayments and user operations from a single professional dashboard.
-              Sign in to continue to your workspace.
-            </p>
-            <div className="mt-10 space-y-4">
-              <div className="flex gap-3 rounded-xl bg-white/10 p-4 backdrop-blur">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent text-navyDeep">
-                  <ShieldCheck className="h-5 w-5" />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold">Enterprise-grade security</p>
-                  <p className="text-xs text-white/60">Protected access for authorized admins only.</p>
-                </div>
-              </div>
-              <div className="flex gap-3 rounded-xl bg-white/10 p-4 backdrop-blur">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white text-navyDeep">
-                  <Lock className="h-5 w-5" />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold">Role-based access</p>
-                  <p className="text-xs text-white/60">Super Admin privileges required to enter dashboard.</p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-        <p className="text-xs text-white/40">© {new Date().getFullYear()} Tarekuk. All rights reserved.</p>
+        {/* Image - replace src with your own image in /public (e.g. /login-cover.jpg) */}
+        <Image
+          src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1470&auto=format&fit=crop"
+          alt="Tarekuk admin workspace"
+          fill
+          priority
+          unoptimized
+          className="object-cover"
+        />
+        {/* Subtle gradient for logo readability */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30" />
+        <p className="absolute bottom-10 left-10 z-10 text-xs text-white/60">
+          © {new Date().getFullYear()} Tarekuk. All rights reserved.
+        </p>
       </div>
 
       {/* Right form panel */}
